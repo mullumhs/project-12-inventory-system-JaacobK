@@ -16,6 +16,8 @@
 class Item():
     def __init__(self, name, price, qty):
         self.set_name(name)
+        self.set_price(price)
+        self.set_qty(qty)
 
 
 
@@ -41,7 +43,7 @@ class Item():
 # This method should return the price formatted as a string with two decimal places.
 
     def get_price(self):
-        return self.price
+        return f"{self.price:.2f}"
 
 # Step 5: Implement a setter for the price attribute.
 # This method should check if the provided value is a non-negative number before setting the _price attribute.
@@ -78,28 +80,30 @@ class Item():
 # Step 8: Create instances of the Item class and demonstrate the use of getters and setters.
 # For example, create a new Item and attempt to set its attributes with both valid and invalid values.
 # Print the outputs using the getters to show how the data is managed internally.
+def main():
+    sword = Item("Sword", 3, 5)
+    while True:
+        try:
+            i = input("Sword Name: ")
+            sword.set_name(i)
+            break
+        except ValueError as error_msg:
+            print(error_msg)
 
-sword = Item("Sword", 3, 5)
-while True:
-    try:
-        i = input("Sword Name: ")
-        sword.set_name(i)
-        break
-    except ValueError as error_msg:
-        print(error_msg)
+    while True:
+        try:
+            i = float(input("Sword Price: "))
+            sword.set_price(i)
+            break
+        except ValueError as error_msg:
+            print(error_msg)
 
-while True:
-    try:
-        i = float(input("Sword Price: "))
-        sword.set_price(i)
-        break
-    except ValueError as error_msg:
-        print(error_msg)
-
-while True:
-    try:
-        i = int(input("Sword qty: "))
-        sword.set_qty(i)
-        break
-    except ValueError as error_msg:
-        print(error_msg)
+    while True:
+        try:
+            i = int(input("Sword qty: "))
+            sword.set_qty(i)
+            break
+        except ValueError as error_msg:
+            print(error_msg)
+if __name__ == "__main__":
+    main()
