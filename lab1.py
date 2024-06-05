@@ -24,7 +24,7 @@ class Item():
 # Step 2: Implement a getter for the name attribute.
 # This method should simply return the value of the private _name attribute.
 
-    def get_name(self):
+    def get_qty(self):
         return self.name
 
 
@@ -34,7 +34,7 @@ class Item():
 # If the value is not a string, it should raise a ValueError.
 
     def set_name(self, name):
-        if isinstance(name, str) and name is not "":
+        if isinstance(name, str) and name != "":
             self._name = name
         else:
             raise ValueError("Not a valid string")
@@ -43,14 +43,14 @@ class Item():
 # This method should return the price formatted as a string with two decimal places.
 
     def get_price(self):
-        return f"{self.price:.2f}"
+        return f"${self.price:.2f}"
 
 # Step 5: Implement a setter for the price attribute.
 # This method should check if the provided value is a non-negative number before setting the _price attribute.
 # If the value is negative, it should raise a ValueError.
 
     def set_price(self, price):
-        if isinstance(price, float) and price >= 0:
+        if isinstance(price, (float, int)) and price >= 0:
             self._price = price
         else:
             raise ValueError("Not a valid float")
