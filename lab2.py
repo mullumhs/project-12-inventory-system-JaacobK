@@ -18,15 +18,18 @@ from lab1 import Item
 
 class InventroryManager():
     def __init__(self):
-        self.items = []
+        self._items = []
 
     def add(self, name, price, qty):
-        item = Item(name, price, qty)
+        new_item = Item(name, price, qty)
+        self._items.append(new_item)
     
     def remove(self, name):
-        # loop through items to see if there is an item with the same name
-        # if there is, then remove it
-        pass
+        for item in self._items:
+            if name == item:
+                self._items.remove(item)
+        
+
     
     def update():
         pass
