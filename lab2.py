@@ -21,43 +21,47 @@ class InventroryManager():
         self._items = []
 
     def add(self, name, price, qty):
+        print("adding")
         for item in self._items:
-            if item.name == name:
+            if item.get_name() == name:
                 print(f"{name} already exixsts")
         new_item = Item(name, price, qty)
         self._items.append(new_item)
     
     def remove(self, name):
         for item in self._items:
-            if name == item:
+            if item.get_name() == name:
                 self._items.remove(item)
                 return
         print("item not found")
 
     def update_price(self, name, price):
         for item in self._items:
-            if item == name:
+            if item.get_name() == name:
                 item.set_price(price)
                 return
         print(f"{name} not found")
         
-    def update_qty(self, item, qty):
-        item.set_price(qty)
+    def update_qty(self, name, qty):
+        for item in self._items:
+            if item.get_name() == name:
+                item.set_price(qty)
+                return
+        print(f"{qty} not found")
 
     def display(self):
         for item in self._items:
-            item.get_name()
-            item.get_price()
-            item.get_qty()
-    
-
- 
+            print(f"{item.get_name()} {item.get_price()} {item.get_qty()}")
 
 # Step 2: Create instances of the Item class and InventoryManager, then demonstrate their usage.
 # E.g. add items to the inventory, remove items, update items, and display the inventory.
-milk_isle = InventroryManager
 
-
-milk_isle = Item("milk", 2, 5)
-
+milk_isle = InventroryManager()
+milk_isle.add("chocy milk", 2, 20)
+milk_isle.add("strawsberry milk", 1.50231321, 10)
+milk_isle.add("banana milk", 2.5, 3)
+milk_isle.add("banana milk", 2.5, 3)
+milk_isle.display()
+milk_isle.remove("chocy milk")
+milk_isle.display()
 
