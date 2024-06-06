@@ -21,10 +21,10 @@ class InventroryManager():
         self._items = []
 
     def add(self, name, price, qty):
-        print("adding")
         for item in self._items:
             if item.get_name() == name:
                 print(f"{name} already exixsts")
+                return
         new_item = Item(name, price, qty)
         self._items.append(new_item)
     
@@ -64,4 +64,3 @@ milk_isle.add("banana milk", 2.5, 3)
 milk_isle.display()
 milk_isle.remove("chocy milk")
 milk_isle.display()
-
