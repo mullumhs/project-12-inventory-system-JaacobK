@@ -16,7 +16,7 @@ from lab1 import Item
 # Step 2: Define tadw ahe InventoryManager class as a facade to handle the inventory operations.
 # It should include methods to add, remove, update, and display items in the inventory.
 
-class InventroryManager():
+class InventroryManager:
     def __init__(self):
         self._items = []
 

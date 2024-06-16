@@ -13,7 +13,7 @@
 # We will define the setters in later steps to add validation to the setting of these attributes.
 
 
-class Item():
+class Item:
     def __init__(self, name, price, qty):
         self.set_name(name)
         self.set_price(price)
